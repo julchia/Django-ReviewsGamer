@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content2 %}
+
+<section id="index">
+    <div class="container">
+        <div id="title" class="font">
+            <h1 class="display-2 text-center title">ReviewsGamer</h1>
+            <p class="text-center subtitle">Donde tu opinión vale de verdad</p>
+        </div>
+        <div>
+            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="" method="GET">
+                <input id="search" class="form-control form-control-sm ml-3 w-75 search" name="search" type="text" placeholder="¿Qué juego estás buscando?" aria-label="Search">
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    $("#search").autocomplete({
+        source: "{% url 'autocomplete' %}"
+    });
+</script>
+
+{% endblock %}
+

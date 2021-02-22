@@ -1,0 +1,20 @@
+#reviews {
+    width: 100%;
+    padding: 20px;
+    background: url(../../img/game2.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.card {
+    margin-right: 20px;
+}
+
+.no-gutters {
+    background-color: #011020;
+    color: #ffffff;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: #011020;
+}

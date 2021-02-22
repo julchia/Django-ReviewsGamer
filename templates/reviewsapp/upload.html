@@ -1,0 +1,48 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content2 %}
+{% load crispy_forms_tags %}
+
+<section id="upload" class="text-light font cover">
+    <div>
+        <h2 class="h1 text-center title-upload">Dar tu opinión nunca fue tan fácil y rápido</h2>
+        <div>
+            <p class="text-center">Todos los campos son obligatorios pero tranquilo porque ninguno te solicita información random</p>
+            <p class="text-center">En tu reviews podés explayarte todo lo que quieras pero siempre de manera respetuosa</p>
+            <p class="text-center">Una vez cargada, las reviews pueden estar sujetas a correcciones por parte de los administradores</p>
+        </div>
+    </div>
+    <div>
+        <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row form-upload">
+                <div class="col-4">
+                    {{ form.game_name|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.plataform|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.genre|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.release_year|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.score|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.cover|as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.review|as_crispy_field }}
+                </div>
+            </div>
+            <div class="text-center pb-3">
+                <button class="btn btn-success btn-lg" type="submit">Cargar review</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

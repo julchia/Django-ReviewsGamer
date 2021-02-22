@@ -1,0 +1,37 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content2 %}
+{% load crispy_forms_tags %}
+
+<section id="register" class="text-light font cover" style="height: 509px;"> 
+    <div>
+        <h2 class="h1 text-center title-upload">Registro a ReviewsGamer</h2>
+        <div>
+            <p class="text-center">Para poder participar necesitás crearte una cuenta</p>
+        </div>
+    </div>
+    <div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row form-upload">
+                <div class="col-6">
+                    {{ form.username|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+            <div class="text-center pb-3">
+                <button class="btn btn-success btn-lg" type="submit">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
